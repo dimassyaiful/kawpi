@@ -33,7 +33,9 @@
         <div class="navbar-nav ml-auto nav-item dropdown" style="margin-right: 20px;">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user fa-fw"></i> <?= $this->session->userdata('nama'); ?></a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Profile</a>
+                <?php if($hak_akses !== '5'){ ?>
+                    <a href="<?= base_url().'pengguna/edit/'.$this->session->userdata('nik'); ?>" class="dropdown-item">Profile</a>
+                <?php } ?>
                     <a class="dropdown-item" href="<?= base_url(); ?>login/out">Logout</a>
                 </div>
             </div>

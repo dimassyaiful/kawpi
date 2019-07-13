@@ -23,6 +23,7 @@ class dashboard extends CI_Controller {
 			exit;
 		
 		}
+		
 	}
 
 	public function cek_portofolio($nik)

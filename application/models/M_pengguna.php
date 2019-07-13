@@ -71,24 +71,27 @@ class m_pengguna extends CI_Model{
             return $result; 
      }
 
-     function update_pengguna($data){
-        if($this->db->replace('pengguna', $data)){
+     function update_pengguna($nik,$data){
+         $this->db->where('nik',$nik);
+        if($this->db->update('pengguna', $data)){
             return 1;
         }else{
             return 0;
         }
     }
 
-     function update_mapping($data){
-        if($this->db->replace('mapping_pengguna', $data)){
+     function update_mapping($nik,$data){
+        $this->db->where('nik',$nik);
+        if($this->db->update('mapping_pengguna', $data)){
             return 1;
         }else{
             return 0;
         }
     }
 
-    function update_login($data){
-        if($this->db->replace('login', $data)){
+    function update_login($nik,$data){
+        $this->db->where('nik',$nik);
+        if($this->db->update('login', $data)){
             return 1;
         }else{
             return 0;

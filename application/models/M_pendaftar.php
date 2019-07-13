@@ -64,8 +64,8 @@ class m_pendaftar extends CI_Model{
         else
         {
             redirect('pendaftar');
-        }}
-   
+        }
+    }
   
     function reset($nik){
         $this->db->where('nik', $nik);
@@ -82,13 +82,6 @@ class m_pendaftar extends CI_Model{
      
     }
 
-    function verifikasi($data){
-        if($this->db->insert('verifikasi',$data)){
-            return 1;
-        }else{
-            return 0;
-        }
-    }
   
   
 }

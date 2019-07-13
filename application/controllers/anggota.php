@@ -57,4 +57,9 @@ class anggota extends CI_Controller {
 	$this->m_anggota->save($nik,$data);}
 
 
+    function delete($nik){ //fungsi delete
+		$this->load->model('m_anggota'); //load model
+		$this->m_anggota->delete($nik); //ngacir ke fungsi delete
+		redirect('anggota'); //redirect
+	}
 }

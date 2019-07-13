@@ -89,18 +89,25 @@ function posisi($id_posisi){
    <input type="email" class="form-control" name="email" aria-describedby="email" placeholder="Masukkan email" required="" value="<?= $data_pengguna->email; ?>">
  </div>
   
+<?php 
+$hak_akses= $this->session->userdata('nik');
+
+if($hak_akses == '1'){ ?>
+<div class="form-group">  
+  
+  <label><b style="color: red;">*</b>Hak Akses </label>
+  <select class="form-control" name="hak_akses" required="">
+    <option value="<?= $data_pengguna->id_posisi; ?>"><?= posisi($data_pengguna->id_posisi); ?></option>
+   <option value="2">Ketua</option>
+   <option value="3">Sekretaris</option>
+  </select>
+  
+</div>
+<?php } ?>
+    
 
     <div class="form-group">
-        <label><b style="color: red;">*</b>Hak Akses </label>
-        <select class="form-control" name="hak_akses" required="">
-          <option value="<?= $data_pengguna->id_posisi; ?>"><?= posisi($data_pengguna->id_posisi); ?></option>
-         <option value="2">Ketua</option>
-         <option value="3">Sekretaris</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-	     <input type="checkbox" id="chk_pwd" onchange="chg_pwdx(this.value)" name="chk_pwd"> <label>Ubah Password</label>
+	     <input type="checkbox" id="chk_pwd" onchange="chg_pwdx()" name="chk_pwd"> <label>Ubah Password</label>
 	</div>
 
     <div id="pwdx" style="display: none;">
@@ -120,7 +127,7 @@ function posisi($id_posisi){
     
 
     <center>
-      <button type="button" class="btn btn-warning" id="btn" onclick="history.back();">
+      <button type="button" class="btn btn-warning" onclick="history.back();">
        <i class="fa fa-arrow-left"></i> Kembali
        </button>
 
@@ -131,15 +138,15 @@ function posisi($id_posisi){
 
     <script type="text/javascript">
       //jika pwd n re type tidak sama 
-      function chg_pwdx(value){
+      function chg_pwdx(){
       	var checkbox = $('#chk_pwd').is(':checked');
         if(!checkbox){
 	        $("#pwdx").css("display", "none");
         }else{
 	        $("#pwdx").css("display", "block");
-
         }
-      	      }
+      }
+
       function cek_pwd(){
         var checkbox = $('#chk_pwd').is(':checked');
         if(!checkbox){
@@ -147,7 +154,6 @@ function posisi($id_posisi){
 	        return 0;
         }else{
 	        console.log('change pwd');
-
         }
         $("#notif").empty();
         var pwd1 = $("#pwd1").val();
@@ -160,13 +166,11 @@ function posisi($id_posisi){
         }else{
           $("#notif").empty();
           $("#btn").prop("disabled", false);
-        }
-      }
+        }     
+
     </script> 
   </div>
 </div>
 </form>
-
-</div></div>
 
 

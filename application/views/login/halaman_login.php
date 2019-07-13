@@ -5,7 +5,7 @@
     <img src="<?= base_url(); ?>src/images/conn.png" class="img-fluid">
   </div>
   <div class="col-md-8">
-    <h1 align="center">Login</h1>
+    <h1 align="center">Loginxxxx</h1>
     <h5 style="font-style: italic; text-align: center;"> "Bergabung dan buat koneksi"</h5>
     <?php  
       //munculkan notifikasi

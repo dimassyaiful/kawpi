@@ -1,21 +1,31 @@
-<form action="<?= base_url(); ?>register/register_config" method= "post">
+
+<form action="<?= base_url(); ?>portofolio/edit_conf" method= "post">
 <center> <h1> Ubah Portofolio</h1></center>
 
 <?php  
 //munculkan notifikasi
 if($notif){ echo $notif; } 
+
+  /* if($this->input->get('update')==1)
+  {
+    echo "Data Berhasil diupdate !";
+  }
+    else if($this->input->get('update')==2)
+    {
+      echo "Data Gagal diupdate !";
+    } */
 ?>
 
 <br>
 <div class="row"> 
-<div class="col-md-6" center> 
+<div class="col-md-12" center> 
 <div class="form-group">
     <label><b style="color: red;">*</b>NIK</label><br>
-    <input type="text" class="form-control" name="nik" aria-describedby="nik" placeholder="masukkan nik" required="">
+    <input type="text" class="form-control" name="nik" aria-describedby="nik" placeholder="" required="" readonly>
     </div>
 
   <div class="form-group">
-    <label><b style="color: red;">*</b>Bdang Keahlian</label><br>
+    <label><b style="color: red;">*</b>Bidang Keahlian</label><br>
     <input type="text" class="form-control" name="bidang_keahlian" aria-describedby="bidang_keahlian" placeholder="masukkan keahlian anda" required="">
     </div>
 
@@ -26,12 +36,12 @@ if($notif){ echo $notif; }
 
 <div class="form-group">
     <label><b style="color: red;">*</b>Sertifikat yang dimiliki</label><br>
-  <input type="text" class="form-control" name="sertifikat_dimiliki" aria-describedby="sertifikat_dimiliki" placeholder="masukkan sertifikat anda" required="">
+  <input type="file" class="form-control" name="sertifikat_dimiliki" aria-describedby="sertifikat_dimiliki" placeholder="masukkan sertifikat anda" required="">
   </div>
 
 <div class="form-group">
     <label><b style="color: red;">*</b>Riwayat Project</label><br>
-  <input type="text" class="form-control" name="riwayat_project" aria-describedby="riwayat_project" placeholder="masukkan project anda" required="">
+  <input type="file"  name="riwayat_project" aria-describedby="riwayat_project" placeholder="masukkan project anda" required="">
   </div>
 
     <div id="notif"></div>

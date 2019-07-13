@@ -32,7 +32,7 @@ class Pendaftar extends CI_Controller {
 		$data['data_edit'] =$this->m_pendaftar->edit($nik);
 
 		//title judul web
-		$header['title_halaman'] = 'Edit data Pendaftar';
+		$header['title_halaman'] = 'Edit Data Pendaftar';
 		$this->load->view('template/header',$header);
         $this->load->view('edit_pendaftar', $data);
 		$this->load->view('template/footer');
@@ -48,11 +48,11 @@ class Pendaftar extends CI_Controller {
 	
 	
 	  $data=array(
-     'nik'=>$nik,
-	'nama'=>$nama,
-	'ttl'=>$ttl,
-	'alamat'=>$alamat,
-	'provinsi'=>$provinsi,
+      'nik'=>$nik,
+	  'nama'=>$nama,
+	  'ttl'=>$ttl,
+	  'alamat'=>$alamat,
+	  'provinsi'=>$provinsi,
 	  );
 	$this->m_pendaftar->save($nik,$data);}
 

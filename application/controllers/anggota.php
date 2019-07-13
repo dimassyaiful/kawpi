@@ -32,7 +32,7 @@ class anggota extends CI_Controller {
 		$data['data_edit'] =$this->m_anggota->edit($nik);
 	
      //title judul web
-		$header['title_halaman'] = 'Edit data Anggota';
+		$header['title_halaman'] = 'Edit Data Anggota';
 		$this->load->view('template/header',$header);
 		   $this->load->view('edit_anggota', $data);
 		   $this->load->view('template/footer');
@@ -49,10 +49,10 @@ class anggota extends CI_Controller {
 	
 	  $data=array(
      'nik'=>$nik,
-	'nama'=>$nama,
-	'ttl'=>$ttl,
-	'alamat'=>$alamat,
-	'provinsi'=>$provinsi,
+	 'nama'=>$nama,
+	 'ttl'=>$ttl,
+	 'alamat'=>$alamat,
+	 'provinsi'=>$provinsi,
 	  );
 	$this->m_anggota->save($nik,$data);}
 

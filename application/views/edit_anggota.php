@@ -72,7 +72,11 @@
    
     <center>
 
-    <input type="submit" name="edit" value="Update">
+  
+    <button type="submit" class="btn btn-success" name="edit" value="Update">
+       <i class="fa fa-check"></i>   save
+       </button>
+     <a class="btn btn-danger"  a href="<?php echo base_url()."anggota";?>"><i class="fa fa-close"></i> cancel</a>
     </center>
 
 <center>
@@ -89,5 +93,5 @@
                 echo "Data Gagal diupdate !";
             }
         ?>
-          <a href="<?php echo base_url()."anggota";?>">Back</a>
+   
       

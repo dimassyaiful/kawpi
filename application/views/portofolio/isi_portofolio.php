@@ -1,10 +1,7 @@
+
+
 <form action="<?= base_url(); ?>portofolio/isi_conf" method= "post">
 <center> <h1> Form Portofolio</h1></center>
-
-<?php  
-//munculkan notifikasi
-if($notif){ echo $notif; } 
-?>
 
 <br>
 <div class="row"> 
@@ -26,24 +23,21 @@ if($notif){ echo $notif; }
 
 <div class="form-group">
     <label><b style="color: red;">*</b>Sertifikat yang dimiliki (*Pdf)</label><br>
-  <input type="file" class="form-control" name="sertifikat_dimiliki" aria-describedby="sertifikat_dimiliki" placeholder="masukkan sertifikat anda" required="">
+  <input type="file" name="sertifikat_dimiliki" >
   </div>
 
 <div class="form-group">
     <label><b style="color: red;">*</b>Riwayat Project (*Pdf)</label><br>
-  <input type="file" class="form-control" name="riwayat_project" aria-describedby="riwayat_project" placeholder="masukkan project anda" required="">
+  <input type="file"  name="riwayat_project" >
   </div>
 
     <div id="notif"></div>
 
     <center>
        <button type="submit" class="btn btn-success" name="submit" id="btn">
-       <i class="fa fa-check"></i>   Simpan
+       <i class="fa fa-check"><a href="<?= base_url(); ?>dashboard/dashboard_pendaftar"></a></i>   Simpan
        </button>
     </center>
-
     </div>
 </div>
 </form>
-
-

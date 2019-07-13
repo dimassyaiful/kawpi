@@ -33,7 +33,7 @@ class edit_portofolio extends CI_Controller {
 		  $bidang_keahlian = $this->input->post("bidang_keahlian");
 		  $riwayat_pelatihan = $this->input->post("riwayat_pelatihan");
 		  $sertifikat_dimiliki = $this->input->post("sertifikat_dimiliki");
-		  $riwayat_project = $this->input->post("riwayar_project");
+		  $riwayat_project = $this->input->post("riwayat_project");
 		} 
 
 		    $edit_data_portofolio = $this->m_portofolio->edit_portofolio($data_portofolio);

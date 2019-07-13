@@ -14,16 +14,6 @@ class dashboard extends CI_Controller {
 			redirect('login');
 			exit;
 		}
-
-		//cek aproval keanggotaan
-		if(empty($this->session->userdata('hak_akses'))){
-			//notif
-			$this->session->set_notif('Akses ditolak! , anda belum portofolio untuk megakses halaman ini','close','danger');
-			redirect('dashboard');
-			exit;
-		
-		}
-		
 	}
 
 	public function cek_portofolio($nik)
@@ -36,6 +26,8 @@ class dashboard extends CI_Controller {
 		
 		}
 	}
+
+	
 
 	public function index()
 	{	
@@ -57,8 +49,21 @@ class dashboard extends CI_Controller {
 			$this->load->view('template/footer');
 			
 		}elseif($hak_akses==4){
-			$this->load->view('dashboard/dashboard_anggota');
+			$this->session->set_notif('Terimakasih, Anda telah Terdaftar sebagai Anggota ','check','success');
+			//notif
+			$data['notif'] = $this->session->get_notif();
+			$this->load->view('dashboard/dashboard_anggota',$data);
 			$this->load->view('template/footer');
+
+		}
+		elseif($hak_akses==3){
+			$this->session->set_notif('Terimakasih, Anda telah Terdaftar sebagai Anggota ','check','success');
+			$data['jumlah_anggota'] = $this->m_dashboard->count_anggota();
+			$data['jumlah_pendaftar'] = $this->m_dashboard->count_pendaftar();
+			$data['notif'] = $this->session->get_notif();
+			$this->load->view('dashboard/dashboard_sekre',$data);
+			$this->load->view('template/footer');
+
 		}elseif($hak_akses==2 || $hak_akses==1){
 			$data['jumlah_anggota'] = $this->m_dashboard->count_anggota();
 			$data['jumlah_pendaftar'] = $this->m_dashboard->count_pendaftar();

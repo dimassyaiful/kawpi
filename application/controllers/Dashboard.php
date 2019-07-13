@@ -58,7 +58,7 @@ class dashboard extends CI_Controller {
 		}elseif($hak_akses==4){
 			$this->load->view('dashboard/dashboard_anggota');
 			$this->load->view('template/footer');
-		}elseif($hak_akses==2){
+		}elseif($hak_akses==2 || $hak_akses==1){
 			$data['jumlah_anggota'] = $this->m_dashboard->count_anggota();
 			$data['jumlah_pendaftar'] = $this->m_dashboard->count_pendaftar();
 

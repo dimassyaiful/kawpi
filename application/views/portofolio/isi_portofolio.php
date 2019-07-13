@@ -1,5 +1,4 @@
 
-
 <form action="<?= base_url(); ?>portofolio/isi_conf" method= "post">
 <center> <h1> Form Portofolio</h1></center>
 

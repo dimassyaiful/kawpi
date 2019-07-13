@@ -8,13 +8,6 @@
           </div>
         </footer>
         <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-
   <!-- plugins:js -->
   <script src="<?= base_url(); ?>src/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

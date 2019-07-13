@@ -55,6 +55,19 @@ class portofolio extends CI_Controller {
 		$this->load->view('template/footer');
 
 
+	public function lihat_portofolio()
+	{
+		//title judul web
+		$header['title_halaman'] = 'Test Show Data';
+
+		//get notif dari fungsi flash session
+		$data['notif'] = $this->session->get_notif();
+
+		//get data portofolio
+		$data['portopolio'] = $this->m_profile->lihat_portofolio();
+		$this->load->view('template/header',$header);
+		$this->load->view('portofolio/lihat_portofolio',$data);
+		$this->load->view('template/footer');
 	}
 
 

@@ -11184,13 +11184,13 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-danger {
   color: #fff;
-  background-color: #f1536e;
+  background-color: #ed0000;
   border-color: #f1536e;
 }
 
 .btn-danger:hover {
   color: #fff;
-  background-color: #ee3050;
+  background-color: #ad0000;
   border-color: #ed2446;
 }
 
@@ -14116,7 +14116,7 @@ a.badge-warning:focus, .preview-list .preview-item .preview-thumbnail a.badge.ba
 
 .badge-danger {
   color: #fff;
-  background-color: #f1536e;
+  background-color: #ed0000;
 }
 
 a.badge-danger:hover, a.badge-danger:focus {

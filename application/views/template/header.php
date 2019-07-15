@@ -16,16 +16,14 @@
     
   </title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="src/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="src/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="src/vendors/fa/css/font-awesome.min.css" > 
+  <link rel="stylesheet" href="<?= base_url(); ?>src/vendors/fa/css/font-awesome.min.css" > 
   <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <!-- End plugin css for this page -->
+
   <!-- inject:css -->
-  <link rel="stylesheet" href="src/css/horizontal-layout/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="src/fa/images/favicon.png" />
+  <link rel="stylesheet" href="<?= base_url(); ?>src/css/horizontal-layout/style.css">
+
+  
+  <script src="<?= base_url(); ?>src/vendors/chart.js/Chart.min.js"></script>
 </head>
 
 <body>

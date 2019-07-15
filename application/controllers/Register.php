@@ -38,26 +38,7 @@ class register extends CI_Controller {
 		  $email = $this->input->post("email");
 		  $password = $this->input->post("password");
 
-		  $cek_nik=$this->m_register->get_nik($nik);
-		  if($cek_nik>0){
-				$this->session->set_notif('Gagal Registrasi, NIK Duplikat','close','danger');
-				redirect('register/');
-				exit();
-		 } 
-
-		 //hash password
-		 $hash = $this->password->hash($password);
-
-		 //tambah data db login
-		 $data_login=array(
-		   "nik" =>$nik,
-		   "password" =>$hash
-		  );
-
-		  $tambah_data_login = $this->m_register->register_login($data_login);
-			if($tambah_data_login){
-				//jika tambah data login berhasil, then tambah data pengguna
-				$data_pengguna=array(
+		  $data_pengguna=array(
 				   "nik" =>$nik,
 				   "nama" =>$nama,
 				   "ttl" =>$ttl,
@@ -65,30 +46,49 @@ class register extends CI_Controller {
 				   "provinsi" =>$provinsi,
 				   "email" =>$email
 				  );
-				$tambah_data_pengguna = $this->m_register->register_pengguna($data_pengguna);
-				if($tambah_data_pengguna){
-					//jika berhasil tambah hak akses sebagai pendaftar
-					$data_mapping=array(
-					   "nik" => $nik,
-					   "id_posisi" => 5,
-					   "tanggal_diterima" => null
-					);
-					$tambah_data_mapping = $this->m_register->register_mapping($data_mapping);
+		 
+		 //hash password
+		 $hash = $this->password->hash($password);
+		  $data_login=array(
+		   "nik" =>$nik,
+		   "password" =>$hash
+		  );
 
-					$this->session->set_notif('Berhasil Registrasi','check','success');
-				}else{
-					//gagal tambah db pengguna
-					$this->session->set_notif('Gagal Registrasi','close','danger');
-				}
-			}else{
-				//gagal tambah db login
-				$this->session->set_notif('Gagal Registrasi ','close','danger');
+		  $data_mapping=array(
+				   "nik" => $nik,
+				   "id_posisi" => 5, //pendaftar
+				   "tanggal_diterima" => null
+		  );
+
+		  $cek_nik=$this->m_register->get_nik($nik);
+		  if($cek_nik>0){ //data nik telah terdaftar
+				$this->session->set_notif('Gagal Registrasi, NIK Duplikat','close','danger');
+				echo "<script> history.back(); </script>";
+				exit();
+		 } 
+
+		 $cek_email=$this->m_register->get_email($email);
+		  if($cek_email>0){ //data email telah digunakan
+				$this->session->set_notif('Gagal Registrasi, E-mail Duplikat','close','danger');
+				echo "<script> history.back(); </script>";
+				exit();
+		 } 
+
+		 $tambah_data_pengguna = $this->m_register->register_pengguna($data_pengguna);
+			if(!$tambah_data_pengguna){ //gagal tambah db pengguna
+				$this->session->set_notif('Gagal Registrasi','close','danger');
+				echo "<script> history.back(); </script>";
+				exit();
 			}
 
-			redirect('register/');
-			exit();
+		//tambah hak akses
+		$tambah_data_mapping = $this->m_register->register_mapping($data_mapping);
 
-		  
+		//tambah data db login
+		$tambah_data_login = $this->m_register->register_login($data_login);
+
+		$this->session->set_notif('Berhasil Registrasi','check','success');
+		redirect('login/');
 
 	}
 }

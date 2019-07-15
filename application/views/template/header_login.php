@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>KAWPI | Login</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="<?= base_url(); ?>src/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>src/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?= base_url(); ?>src/vendors/fa/css/font-awesome.min.css" > 
   <!-- endinject -->

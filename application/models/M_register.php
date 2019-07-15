@@ -34,6 +34,16 @@ class m_register extends CI_Model{
         $num=$query->num_rows();
         return $num;
     }
+
+    function get_email($email){
+        $this->db->select('*');
+        $this->db->from('pengguna');
+        $this->db->where('email',$email);
+
+        $query=$this->db->get();
+        $num=$query->num_rows();
+        return $num;
+    }
 }
 
 ?>

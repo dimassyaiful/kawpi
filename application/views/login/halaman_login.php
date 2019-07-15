@@ -1,7 +1,5 @@
 <div class="container">
-
   
-
 <div  class="row">
   <div class="col-md-4">
     <img src="<?= base_url(); ?>src/images/conn.png" class="img-fluid">

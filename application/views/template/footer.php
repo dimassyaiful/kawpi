@@ -18,11 +18,12 @@
   <!-- plugins:js -->
   <script src="<?= base_url(); ?>src/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
-  <!-- Plugin js for this page -->
   
   <!-- Custom js for this page-->
   <script src="<?= base_url(); ?>src/js/dashboard.js"></script>
   <script src="<?= base_url(); ?>src/js/todolist.js"></script>
+  
+  <script src="<?= base_url(); ?>src/js/chart.js"></script>
   <!-- End custom js for this page-->
 </body>
 

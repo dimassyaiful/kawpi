@@ -16,5 +16,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$hash2 = substr($hash1,0,-3);
 			return password_verify($password, $hash2);
 		}
+
+		function encrypt($str) {
+			$hasil = '';
+		    $kunci = '979a218e0632df2935317f98d47956c7';
+		    for ($i = 0; $i < strlen($str); $i++) {
+		        $karakter = substr($str, $i, 1);
+		        $kuncikarakter = substr($kunci, ($i % strlen($kunci))-1, 1);
+		        $karakter = chr(ord($karakter)+ord($kuncikarakter));
+		        $hasil = $hasil.$karakter;
+		    }
+		    return urlencode(base64_encode($hasil));
+		}
+		function decrypt($str) {
+			$hasil = '';
+		    $str = base64_decode(urldecode($str));
+		    $hasil = '';
+		    $kunci = '979a218e0632df2935317f98d47956c7';
+		    for ($i = 0; $i < strlen($str); $i++) {
+		        $karakter = substr($str, $i, 1);
+		        $kuncikarakter = substr($kunci, ($i % strlen($kunci))-1, 1);
+		        $karakter = chr(ord($karakter)-ord($kuncikarakter));
+		        $hasil = $hasil.$karakter;
+		    }
+		    return $hasil;
+		}
 	}
 ?>

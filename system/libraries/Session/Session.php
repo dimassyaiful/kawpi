@@ -983,7 +983,7 @@ class CI_Session {
 	//custom notifikasi
 	public function get_notif(){
 		if(empty($this->flashdata('isi_notif'))){
-			return 0;
+			return null;
 		}
 
 		$isi_notif   = $this->flashdata('isi_notif');
@@ -991,7 +991,7 @@ class CI_Session {
 		$class_notif = $this->flashdata('class_notif');
 
 		if($isi_notif == "" || $class_notif ==""){
-			return 0;
+			return null;
 		}else{
 			$notifikasi = '<div class="alert alert-'.$class_notif.'" style=" margin-top:30px; font-weight: bold;">
 		   <i class="fa fa-'.$fa_notif.'"> </i> '.$isi_notif.'</div>';

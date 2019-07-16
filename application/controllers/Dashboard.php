@@ -35,13 +35,14 @@ class dashboard extends CI_Controller {
 		$this->load->view('template/header',$header);
 
 		$hak_akses = $this->session->userdata('hak_akses');
+		$data['hak_akses'] = $hak_akses;
 
 		if($hak_akses==5) {
 			$this->load->view('dashboard/dashboard_pendaftar');
 		}elseif($hak_akses==4){
 			$this->load->view('dashboard/dashboard_anggota');
-		$this->load->view('template/footer');
-		}elseif($hak_akses==2){
+			$this->load->view('template/footer');
+		}elseif($hak_akses=='2' || $hak_akses=='1'){
 			$data['jumlah_anggota'] = $this->m_dashboard->count_anggota();
 			$data['jumlah_pendaftar'] = $this->m_dashboard->count_pendaftar();
 
@@ -66,6 +67,11 @@ class dashboard extends CI_Controller {
 			}
 			$data['statistik_provinsi_values'] = $statistik_provinsi_values;
 			$data['statistik_provinsi_label'] = $statistik_provinsi_label;
+
+
+			if($hak_akses == 1){
+				$data['jumlah_pengguna'] = $this->m_dashboard->get_jumlah_pengguna();	
+			}
 
 			$this->load->view('dashboard/dashboard_ketua',$data);
 			$this->load->view('template/footer');

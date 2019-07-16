@@ -37,6 +37,7 @@ class register extends CI_Controller {
 		  $provinsi = $this->input->post("provinsi");
 		  $email = $this->input->post("email");
 		  $password = $this->input->post("password");
+		  $hak_akses = $this->input->post('hak_akses');
 
 		  $data_pengguna=array(
 				   "nik" =>$nik,
@@ -54,10 +55,20 @@ class register extends CI_Controller {
 		   "password" =>$hash
 		  );
 
+		  if(isset($hak_akses)){
+		  	$hak_akses = $this->input->post('hak_akses');
+		  	$tgl = date("Y/m/d");
+		  	$redirect = 'pengguna';
+		  }else{
+		  	$hak_akses = 5;
+		  	$tgl = null;
+		  	$redirect = 'login';
+		  }
+
 		  $data_mapping=array(
 				   "nik" => $nik,
-				   "id_posisi" => 5, //pendaftar
-				   "tanggal_diterima" => null
+				   "id_posisi" => $hak_akses, //pendaftar
+				   "tanggal_diterima" => $tgl
 		  );
 
 		  $cek_nik=$this->m_register->get_nik($nik);
@@ -88,7 +99,7 @@ class register extends CI_Controller {
 		$tambah_data_login = $this->m_register->register_login($data_login);
 
 		$this->session->set_notif('Berhasil Registrasi','check','success');
-		redirect('login/');
+		redirect($redirect);
 
 	}
 }

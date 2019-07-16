@@ -1,4 +1,10 @@
 
+<?php
+  if(!empty($notif)){
+      echo $notif;
+  }
+
+  ?>
 <div class="row">
     <div class="col-md-3 col-xs-12">
       <div class="card" style="border-radius: 10px; background-color: #009c10;">
@@ -31,6 +37,25 @@
       </div>
     </div>
   </div>
+
+  <?php if($hak_akses == 1){ ?>
+    <div class="col-md-3">
+      <div class="card" style="border-radius: 10px; background-color: #ffa200;">
+        <div class="card-body">
+          <div class="d-flex flex-md-column flex-xl-row flex-wrap  align-items-center justify-content-between">
+            <div class="icon-rounded-inverse-info icon-rounded-lg">
+              <i class="fa fa-vcard-o"></i>
+            </div>
+            <div class="text-white">
+              <p class="font-weight-medium text-md-center text-xl-left">Jumlah Pengguna</p>
+              <h1><?= $jumlah_pengguna; ?> </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+
 </div>
 
   <br>

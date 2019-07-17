@@ -18,7 +18,7 @@ class m_dashboard extends CI_Model{
 
 	function get_statistik_anggota(){
         
-          $sql ="SELECT count(nik) jumlah, month(tanggal_diterima) bulan , year(tanggal_diterima) tahun FROM mapping_pengguna where id_posisi = '4' group by bulan,tahun limit 10";
+          $sql ="SELECT count(v.nik) jumlah, month(v.tgl_verifikasi) bulan , year(v.tgl_verifikasi) tahun FROM verifikasi v, mapping_pengguna m where m.nik = v.nik and m.id_posisi = '4' group by bulan,tahun limit 10";
           $query = $this->db->query($sql);
           $result = $query->result(); 
           return $result; 

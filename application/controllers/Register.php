@@ -49,7 +49,7 @@ class register extends CI_Controller {
 				  );
 		 
 		 //hash password
-		 $hash = $this->password->hash($password);
+		  $hash = $this->password->hash($password);
 		  $data_login=array(
 		   "nik" =>$nik,
 		   "password" =>$hash
@@ -57,18 +57,15 @@ class register extends CI_Controller {
 
 		  if(isset($hak_akses)){
 		  	$hak_akses = $this->input->post('hak_akses');
-		  	$tgl = date("Y/m/d");
 		  	$redirect = 'pengguna';
 		  }else{
 		  	$hak_akses = 5;
-		  	$tgl = null;
 		  	$redirect = 'login';
 		  }
 
 		  $data_mapping=array(
 				   "nik" => $nik,
-				   "id_posisi" => $hak_akses, //pendaftar
-				   "tanggal_diterima" => $tgl
+				   "id_posisi" => $hak_akses
 		  );
 
 		  $cek_nik=$this->m_register->get_nik($nik);

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #00450f">
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #00450f;">
     <a href="<?= base_url().'dashboard'; ?>" class="navbar-brand">
         <h3> KAWPI</h3>
     </a>
@@ -31,7 +31,7 @@
            
         </div>
         <div class="navbar-nav ml-auto nav-item dropdown" style="margin-right: 20px;">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><?= $this->session->userdata('nama'); ?></a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user fa-fw"></i> <?= $this->session->userdata('nama'); ?></a>
                 <div class="dropdown-menu">
                     <a href="#" class="dropdown-item">Profile</a>
                     <a class="dropdown-item" href="<?= base_url(); ?>login/out">Logout</a>

@@ -43,6 +43,7 @@
   <?php $this->load->view('template/menu'); ?>
 
     <!-- partial -->
+
     <div class="container-fluid page-body-wrapper">
       <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="min-height: 600px;">

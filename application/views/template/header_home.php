@@ -30,32 +30,33 @@
           background-repeat: no-repeat;
           background-size: cover;
         }
+
+        .navbar-nav a{
+          color: white !important;
+          margin-right: 10px;
+          margin-left: 10px;
+        }
   </style>
 </head>
 
 <body class="bg">
-    <!-- partial:partials/_horizontal-navbar.html -->
-    <div class="horizontal-menu">
-      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
-        <div class="container" style="padding: 10px;">
-          <div class="text-center navbar-nav-left d-flex  ">
-            <a href="<?= base_url(); ?>" class="nav-link"> <h2 style="color: white"> KAWPI </h2> </a>
-          </div>
-          <div class="text-center navbar-nav-right d-flex ">
-            <a class="nav-link" href="<?= base_url(); ?>login" >
-              Log In
-            </a>
-            <a class="nav-link" href="<?= base_url(); ?>register" >
-              Register
-            </a>
-          </div>
 
+         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #00450f; position: fixed; width: 100%;"  >
+        <a href="<?= base_url(); ?>" class="navbar-brand">
+            <h3> KAWPI</h3>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            
+            <div class="navbar-nav ml-auto">
+                <a href="<?= base_url().'login'; ?>" class="nav-item nav-link">Login</a>
+                <a href="<?= base_url().'register'; ?>" class="nav-item nav-link">Register  </a>
+            </div>
         </div>
-      </nav>
-      
-
-    </div >
+    </nav>
 
     <!-- partial -->
     <div>

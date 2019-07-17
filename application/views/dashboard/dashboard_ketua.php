@@ -5,56 +5,27 @@
   }
 
   ?>
-<div class="row">
-    <div class="col-md-3 col-xs-12">
-      <div class="card" style="border-radius: 10px; background-color: #009c10;">
-        <div class="card-body">
-          <div class="d-flex flex-md-column flex-xl-row flex-wrap  align-items-center justify-content-between">
-            <div class="icon-rounded-inverse-success icon-rounded-lg">
-              <i class="fa fa-group"></i>
-            </div>
-            <div class="text-white">
-              <p class="font-weight-medium text-md-center text-xl-left">Jumlah Anggota</p>
-              <h1><?= $jumlah_anggota; ?> </h1>
-          </div>
-        </div>
+<div class="row" style="padding-left: 10px; padding-right: 10px;" >
+  <div class="col-md-3 col-xs-12"  style="margin: 5px 5px 5px 5px;">
+    <div class="row" style="border-radius: 10px; background-color: #009c10; padding: 10px; color: white;" >
+      <div class="col-md-4 col-xs-4 text-center" style="padding-top: 10px;"> <i class="fa fa-group fa-3x"></i></div>
+      <div class="col-md-8 col-xs-8 text-center">
+        Jumlah Anggota
+        <h2><?= $jumlah_anggota; ?> </h2>
       </div>
     </div>
   </div>
 
-    <div class="col-md-3">
-      <div class="card" style="border-radius: 10px; background-color: #007a9c;">
-        <div class="card-body">
-          <div class="d-flex flex-md-column flex-xl-row flex-wrap  align-items-center justify-content-between">
-            <div class="icon-rounded-inverse-info icon-rounded-lg">
-              <i class="fa fa-vcard-o"></i>
-            </div>
-            <div class="text-white">
-              <p class="font-weight-medium text-md-center text-xl-left">Jumlah Pendaftar</p>
-              <h1><?= $jumlah_pendaftar; ?> </h1>
-          </div>
-        </div>
+  <div class="col-md-3 col-xs-12" style="margin: 5px 5px 5px 5px;">
+    <div class="row" style="border-radius: 10px; background-color: #00567a; padding: 10px; color: white;" >
+      <div class="col-md-4 col-xs-4 text-center" style="padding-top: 10px;"> <i class="fa fa-vcard-o fa-3x"></i></div>
+      <div class="col-md-8 col-xs-8 text-center">
+        Jumlah Pendaftar
+        <h2><?= $jumlah_pendaftar; ?> </h2>
       </div>
     </div>
   </div>
-
-  <?php if($hak_akses == 1){ ?>
-    <div class="col-md-3">
-      <div class="card" style="border-radius: 10px; background-color: #ffa200;">
-        <div class="card-body">
-          <div class="d-flex flex-md-column flex-xl-row flex-wrap  align-items-center justify-content-between">
-            <div class="icon-rounded-inverse-info icon-rounded-lg">
-              <i class="fa fa-vcard-o"></i>
-            </div>
-            <div class="text-white">
-              <p class="font-weight-medium text-md-center text-xl-left">Jumlah Pengguna</p>
-              <h1><?= $jumlah_pengguna; ?> </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <?php } ?>
+   
 
 </div>
 

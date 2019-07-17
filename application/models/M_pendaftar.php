@@ -52,7 +52,7 @@ class m_pendaftar extends CI_Model{
       $result = $query->row(); 
       return $result; 
     }
-
+    
     function save($nik, $data_edit)
     {
         $this->db->where('nik', $nik);

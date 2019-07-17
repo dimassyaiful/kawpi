@@ -1,4 +1,5 @@
-<form action="<?= base_url(); ?>portofolio/isi_conf" method= "post">
+
+<form action="<?= base_url(); ?>portofolio/lihat_conf" method= "post">
 <h1 style="text-align: center;"> Portofolio</h1>
 <br>
 

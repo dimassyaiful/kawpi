@@ -25,6 +25,17 @@ class dashboard extends CI_Controller {
 		}
 	}
 
+	public function cek_portofolio($nik)
+	{
+		$cek_port=$this->m_dashboard->get_portofolio($nik);
+		  if($cek_port){ //data nik telah terdaftar
+			$this->session->set_notif('Terimakasih, Anda Telah mengisi Portofolio. Data anda sedang diproses ','check','success');
+		}else{
+			$this->session->set_notif('Anda belum mengisi Portofolio. ','spinner fa-spin','warning');
+		
+		}
+	}
+
 	public function index()
 	{	
 		
@@ -35,14 +46,19 @@ class dashboard extends CI_Controller {
 		$this->load->view('template/header',$header);
 
 		$hak_akses = $this->session->userdata('hak_akses');
-		$data['hak_akses'] = $hak_akses;
+		$nik = $this->session->userdata('nik');
 
 		if($hak_akses==5) {
-			$this->load->view('dashboard/dashboard_pendaftar');
+			$this->cek_portofolio($nik);
+			//notif
+			$data['notif'] = $this->session->get_notif();
+			$this->load->view('dashboard/dashboard_pendaftar',$data);
+			$this->load->view('template/footer');
+			
 		}elseif($hak_akses==4){
 			$this->load->view('dashboard/dashboard_anggota');
 			$this->load->view('template/footer');
-		}elseif($hak_akses=='2' || $hak_akses=='1'){
+		}elseif($hak_akses==2){
 			$data['jumlah_anggota'] = $this->m_dashboard->count_anggota();
 			$data['jumlah_pendaftar'] = $this->m_dashboard->count_pendaftar();
 
@@ -67,11 +83,6 @@ class dashboard extends CI_Controller {
 			}
 			$data['statistik_provinsi_values'] = $statistik_provinsi_values;
 			$data['statistik_provinsi_label'] = $statistik_provinsi_label;
-
-
-			if($hak_akses == 1){
-				$data['jumlah_pengguna'] = $this->m_dashboard->get_jumlah_pengguna();	
-			}
 
 			$this->load->view('dashboard/dashboard_ketua',$data);
 			$this->load->view('template/footer');

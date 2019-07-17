@@ -19,6 +19,7 @@ class m_pendaftar extends CI_Model{
       $result = $query->row(); 
       return $result; 
     }
+    
     function save($nik, $data_edit)
     {
         $this->db->where('nik', $nik);
@@ -32,8 +33,6 @@ class m_pendaftar extends CI_Model{
             redirect('pendaftar');
         }}
    
-  
-
   function delete($nik)
     {
         $query=$this->db->query("DELETE FROM pengguna WHERE nik='$nik'");

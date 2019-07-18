@@ -29,6 +29,7 @@
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
+          
         }
 
         .navbar-nav a{
@@ -39,7 +40,7 @@
   </style>
 </head>
 
-<body class="bg">
+<body class="bg" bgcolor="black">
 
          <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #00450f; position: fixed; width: 100%;"  >
         <a href="<?= base_url(); ?>" class="navbar-brand">
@@ -64,6 +65,6 @@
         <div style="padding-top: 200px;">
 
           <center> 
-            <h1 style="color: white; font-size: 60pt;"> HOME PAGE </h1> 
-            <h1 style="color: white;"> "Quotes"</h1>
+            <h6 style="color: white; font-size: 40pt;"> Keanggotaan Asosiasi Web Programmer Indonesia </h6> 
+            <h5 style="color: white;"> "Sudahkah anda bergabung sebagai anggota ??"</h5 >
           </center>

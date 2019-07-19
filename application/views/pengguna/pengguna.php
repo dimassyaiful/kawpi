@@ -22,6 +22,7 @@ function posisi($id_posisi){
 
 
 ?>
+<div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>NIK </th>
@@ -59,6 +60,7 @@ function posisi($id_posisi){
 			</tr>
 	<?php } ?>
 </table>
+</div>
 
 <br><br>
 

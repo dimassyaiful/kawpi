@@ -29,12 +29,17 @@
 	<i class="fa fa-trash-o"></i> delete</a>
 	
 	 <button class="btn btn-primary  btn-sm" id="btn_portofolio" id="btn_update" onclick="open_modal('<?= $row->nik; ?>')"> <i class="fa fa-address-card-o fa-fw"></i> Verifikasi </button>
-			 
 		</tr>
 
 	<?php } ?>
 
 </table>
+<br><br>
+<?php if($this->session->userdata('hak_akses')=='1'){ ?>
+<center>
+<a class="btn btn-info" href="<?php echo base_url().'register'; ?>"> <i class="fa fa-plus"> </i> Tambah Pendaftar </a>
+</center>
+<?php } ?>
 </div>
 
 <!-- Modal -->

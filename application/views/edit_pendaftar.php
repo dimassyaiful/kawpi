@@ -74,8 +74,7 @@
 
     <button type="submit" class="btn btn-success" name="edit" value="Update">
        <i class="fa fa-check"></i>   save
-       </button>
-     <a class="btn btn-danger"  a href="<?php echo base_url()."pendaftar";?>">Back</a>
+       </button> <a class="btn btn-danger"  a href="<?php echo base_url()."pendaftar";?>"><i class="fa fa-close"></i> cancel</a>
 
 	
     </center>

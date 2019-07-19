@@ -36,7 +36,7 @@ if($notif){ echo $notif; }
 
 <div class="form-group">
     <label><b style="color: red;">*</b>Sertifikat yang dimiliki</label><br>
-  <input type="file"  name="sertifikat_dimiliki" aria-describedby="sertifikat_dimiliki" placeholder="masukkan sertifikat anda" required="">
+  <input type="file" class="form-control" name="sertifikat_dimiliki" aria-describedby="sertifikat_dimiliki" placeholder="masukkan sertifikat anda" required="">
   </div>
 
 <div class="form-group">

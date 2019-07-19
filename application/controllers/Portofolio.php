@@ -129,6 +129,7 @@ class portofolio extends CI_Controller {
 
 		//get data portofolio
 		$data['portopolio'] = $this->m_profile->lihat_portofolio();
+		
 		$this->load->view('template/header',$header);
 		$this->load->view('portofolio/lihat_portofolio',$data);
 		$this->load->view('template/footer');
@@ -154,26 +155,6 @@ class portofolio extends CI_Controller {
 		  $sertifikat_dimiliki = $this->input->post("sertifikat_dimiliki");
 		  $riwayat_project = $this->input->post("riwayat_project");
 		} 
-
-		    /* $edit_data_portofolio = $this->m_portofolio->edit_portofolio($data_portofolio);
-			if($edit_data_portofolio){
-				//jika tambah data login berhasil, then tambah data pengguna
-				$data_portofolio=array(
-				   "nik" =>$nik,
-				   "bidang_keahlian" =>$bidang_keahlian,
-				   "riwayat_pelatihan" =>$riwayat_pelatihan,
-				   "sertifikat_dimiliki" =>$sertifikat_dimiliki,
-				   "riwayat_project" =>$riwayat_project
-                  );
-                  
-				$this->session->set_notif('Berhasil Ubah','check','success');
-				}else{
-					//gagal tambah db pengguna
-					$this->session->set_notif('Gagal Ubah','close','danger');
-				} 
-			
-			redirect('portofolio/');
-			exit();*/
 	
 }
 

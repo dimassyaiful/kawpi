@@ -18,7 +18,9 @@
                <?php }else if($hak_akses == '2'){ //menu ketua ?>
 
                <?php }elseif($hak_akses == '3'){ //menu sekretaris ?>
-
+                <a href="<?= base_url().'anggota'; ?>" class="nav-item nav-link"> <i class="fa fa-database"></i> Anggota</a>
+                    <a href="<?= base_url().'pendaftar'; ?>" class="nav-item nav-link"> <i class="fa fa-database"></i> Pendaftar</a>
+               
                <?php }elseif($hak_akses == '4'){ //menu anggota ?>
 
                <?php }elseif($hak_akses == '5'){ //menu pendaftar ?>
@@ -33,7 +35,9 @@
         <div class="navbar-nav ml-auto nav-item dropdown" style="margin-right: 20px;">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user fa-fw"></i> <?= $this->session->userdata('nama'); ?></a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Profile</a>
+                <?php if($hak_akses !== '5'){ ?>
+                    <a href="<?= base_url().'pengguna/edit/'.$this->session->userdata('nik'); ?>" class="dropdown-item">Profile</a>
+                <?php } ?>
                     <a class="dropdown-item" href="<?= base_url(); ?>login/out">Logout</a>
                 </div>
             </div>

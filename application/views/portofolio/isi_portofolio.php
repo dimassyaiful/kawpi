@@ -36,7 +36,7 @@ if(isset($notif)){
 
     <center>
        <button type="submit" class="btn btn-success" name="submit" id="btn">
-       <i class="fa fa-check"><a href="<?= base_url(); ?>dashboard/dashboard_pendafar"></a></i>   Simpan
+       <i class="fa fa-check"><a href="<?= base_url(); ?>dashboard/dashboard_pendaftar"></a></i>   Simpan
        </button>
     </center>
     </div>

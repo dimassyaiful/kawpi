@@ -81,7 +81,7 @@ class pengguna extends CI_Controller {
 		  $hak_akses = $this->input->post("hak_akses");
 
 		  $data_pengguna=array(
-				   "nik" =>$nik,
+				
 				   "nama" =>$nama,
 				   "ttl" =>$ttl,
 				   "alamat" =>$alamat,
@@ -101,8 +101,8 @@ class pengguna extends CI_Controller {
 				$this->session->set_notif('Gagal Registrasi, NIK Tidak ditemukan','close','danger');
 				echo "<script> history.back(); </script>";
 				exit();
-		 } 
-
+		 }
+		
 		
 		 $cek_email=$this->m_pengguna->get_email_data($email);
 
@@ -115,15 +115,20 @@ class pengguna extends CI_Controller {
 		 		} 
 		 }  
 
-		 $edit_data_pengguna = $this->m_pengguna->update_pengguna($data_pengguna);
+		 
+
+		 $edit_data_pengguna = $this->m_pengguna->update_pengguna($nik,$data_pengguna);
 			if(!$edit_data_pengguna){ //gagal tambah db pengguna
 				$this->session->set_notif('Gagal Update','close','danger');
 				echo "<script> history.back(); </script>";
 				exit();
 			}
 
-		//update hak akses
-		$edit_data_mapping = $this->m_pengguna->update_mapping($data_mapping);
+		//update hak aksesi
+if (!empty($hak_akses)){
+	$edit_data_mapping = $this->m_pengguna->update_mapping($nik,$data_mapping);
+}
+		
 
 		//update data db login
 		//hash password
@@ -131,10 +136,9 @@ class pengguna extends CI_Controller {
 		  	$password = $this->input->post("password");
 		  	$hash = $this->password->hash($password);
 			$data_login=array(
-			   "nik" =>$nik,
 			   "password" =>$hash
 			  );
-			$edit_data_login = $this->m_pengguna->update_login($data_login);
+			$edit_data_login = $this->m_pengguna->update_login($nik,$data_login);
 		  }
 		
 		$this->session->set_notif('Berhasil Ubah Data','check','success');

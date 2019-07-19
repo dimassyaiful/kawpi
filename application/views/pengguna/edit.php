@@ -90,9 +90,9 @@ function posisi($id_posisi){
  </div>
   
 <?php 
-$hak_akses= $this->session->userdata('nik');
+$nik= $this->session->userdata('nik');
 
-if($hak_akses == '1'){ ?>
+if($nik !== $data_pengguna->nik){ ?>
 <div class="form-group">  
   
   <label><b style="color: red;">*</b>Hak Akses </label>

@@ -42,6 +42,7 @@ class m_dashboard extends CI_Model{
       return $num;
   }
 
+  
 }
 
 ?>

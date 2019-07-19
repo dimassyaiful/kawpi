@@ -18,7 +18,9 @@
                <?php }else if($hak_akses == '2'){ //menu ketua ?>
 
                <?php }elseif($hak_akses == '3'){ //menu sekretaris ?>
-
+                <a href="<?= base_url().'anggota'; ?>" class="nav-item nav-link"> <i class="fa fa-database"></i> Anggota</a>
+                    <a href="<?= base_url().'pendaftar'; ?>" class="nav-item nav-link"> <i class="fa fa-database"></i> Pendaftar</a>
+               
                <?php }elseif($hak_akses == '4'){ //menu anggota ?>
 
                <?php }elseif($hak_akses == '5'){ //menu pendaftar ?>

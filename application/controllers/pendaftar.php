@@ -51,6 +51,23 @@ class Pendaftar extends CI_Controller {
 	
 	}
 
+		function get_portofolio()
+	{ 
+	  $nik = $this->input->post('nik');
+	  $cek_portofolio = $this->m_pendaftar->cek_portofolio($nik);
+	  if($cek_portofolio < 1){
+	  	$data['cek_portofolio'] = 0;
+	  }else{
+	  	$data['cek_portofolio'] = 1;
+	  }
+
+	  
+	  $data['data_portofolio'] = $this->m_pendaftar->get_portofolio($nik);
+	  $data['data_pengguna'] = $this->m_pengguna->get_data_pengguna_1($nik);
+	  $this->load->view('portofolio/modal_portofolio',$data);
+	 
+	}
+	
 	function save_edit($nik)
 	{ $nik = $this->input->post('nik');
 	  $nama = $this->input->post('nama');

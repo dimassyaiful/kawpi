@@ -139,21 +139,21 @@ if($hak_akses == '1'){ ?>
     <script type="text/javascript">
       //jika pwd n re type tidak sama 
       function chg_pwdx(){
-      	var checkbox = $('#chk_pwd').is(':checked');
+        var checkbox = $('#chk_pwd').is(':checked');
         if(!checkbox){
-	        $("#pwdx").css("display", "none");
+          $("#pwdx").css("display", "none");
         }else{
-	        $("#pwdx").css("display", "block");
+          $("#pwdx").css("display", "block");
         }
       }
 
       function cek_pwd(){
         var checkbox = $('#chk_pwd').is(':checked');
         if(!checkbox){
-	        console.log('not change pwd');
-	        return 0;
+          console.log('not change pwd');
+          return 0;
         }else{
-	        console.log('change pwd');
+          console.log('change pwd');
         }
         $("#notif").empty();
         var pwd1 = $("#pwd1").val();
@@ -167,7 +167,7 @@ if($hak_akses == '1'){ ?>
           $("#notif").empty();
           $("#btn").prop("disabled", false);
         }     
-
+  }
     </script> 
   </div>
 </div>

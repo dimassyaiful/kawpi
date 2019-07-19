@@ -1,14 +1,16 @@
 
-<form action="<?= base_url(); ?>portofolio/isi_conf" method= "post">
+<form action="<?= base_url(); ?>portofolio/isi_conf" method= "post"   enctype="multipart/form-data">
 <center> <h1> Form Portofolio</h1></center>
+<br>
+<?php
+if(isset($notif)){
+  echo $notif;
+}
 
+?>
 <br>
 <div class="row"> 
 <div class="col-md-12" center> 
-<div class="form-group">
-    <label><b style="color: red;">*</b>NIK</label><br>
-    <input type="text" class="form-control" name="nik" aria-describedby="nik" placeholder="masukkan nik" required="">
-    </div>
 
   <div class="form-group">
     <label><b style="color: red;">*</b>Bidang Keahlian</label><br>
@@ -21,13 +23,13 @@
   </div>
 
 <div class="form-group">
-    <label><b style="color: red;">*</b>Sertifikat yang dimiliki (*Pdf)</label><br>
+    <label>Sertifikat yang dimiliki (*Pdf)</label><br>
   <input type="file" name="sertifikat_dimiliki" >
   </div>
 
 <div class="form-group">
-    <label><b style="color: red;">*</b>Riwayat Project (*Pdf)</label><br>
-  <input type="file"  name="riwayat_project" >
+    <label>Riwayat Project (*Pdf)</label><br>
+  <input type="file"  name="project" >
   </div>
 
     <div id="notif"></div>

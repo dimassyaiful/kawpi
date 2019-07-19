@@ -45,11 +45,11 @@
 			</tr>
 			<tr> 
 				<th style="font-weight: bold; width: 120px; background-color: #94d8ff;">  Sertifikat  </th>
-				<td> <a href="<?= base_url().'file/sertifikat/'.$data_portofolio->sertifikat_dimiliki; ?>"> <i class="fa fa-file"></i> Lihat Sertifikat</a> </td>
+				<td> <a target="_blank" href="<?= base_url().'src/file_sertifikat/'.$data_portofolio->sertifikat_dimiliki; ?>"> <i class="fa fa-file"></i> Lihat Sertifikat</a>  </td>
 			</tr>
 			<tr> 
 				<th style="font-weight: bold; width: 120px; background-color: #ccdfff;"> Riwayat Project </th>
-				<td> <a href="<?= base_url().'file/sertifikat/'.$data_portofolio->riwayat_project; ?>"> <i class="fa fa-file"></i> Lihat Project</a></td>
+				<td> <a target="_blank" href="<?= base_url().'src/file_project/'.$data_portofolio->riwayat_project; ?>"> <i class="fa fa-file"></i> Lihat Project</a> </td>
 			</tr>
 		
 		</table>

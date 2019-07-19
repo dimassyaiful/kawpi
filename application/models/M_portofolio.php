@@ -13,13 +13,14 @@ function get_portofolio($data){
 
 
 // ambil data portofolio
-function lihat_portofolio(){
+function lihat_portofolio($nik){
         
     $this->db->select('*');
     $this->db->from('portopolio');
+    $this->db->where('nik',$nik);
 
     $query = $this->db->get();
-    $result = $query->result(); 
+    $result = $query->row(); 
     return $result; 
 }
 
@@ -36,16 +37,42 @@ function lihat_portofolio(){
 }
 
 
-//ambil nik dari db portopolio
-function get_nik($nik){
-    $this->db->select('*');
-    $this->db->from('portopolio');
-    $this->db->where('nik',$nik);
+    //ambil nik dari db portopolio
+    function get_nik($nik){
+        $this->db->select('*');
+        $this->db->from('portopolio');
+        $this->db->where('nik',$nik);
 
-    $query=$this->db->get();
-    $num=$query->num_rows();
-    return $num;
-}
+        $query=$this->db->get();
+        $num=$query->num_rows();
+        return $num;
+    }
+
+    function tambah_portofolio($data){
+        if($this->db->insert('portopolio',$data)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    function hapus_portofolio($nik){
+        $this->db->where('nik', $nik);
+        if($this->db->delete('portopolio')){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+        function hapus_verifikasi($nik){
+        $this->db->where('nik', $nik);
+        if($this->db->delete('verifikasi')){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 
 }
 

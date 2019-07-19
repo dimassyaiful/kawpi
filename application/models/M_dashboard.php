@@ -42,6 +42,20 @@ class m_dashboard extends CI_Model{
       return $num;
   }
 
+      function get_status_aproval($nik){
+        $this->db->select('*');
+        $this->db->from('verifikasi');
+        $this->db->where('nik',$nik);
+
+        $query=$this->db->get();
+        $result=$query->row();
+
+        if(empty($result)){
+          return null;
+        }
+        return $result->status;
+    }
+
 }
 
 ?>

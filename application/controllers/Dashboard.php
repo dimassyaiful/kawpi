@@ -6,6 +6,7 @@ class dashboard extends CI_Controller {
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->model('m_dashboard');
+		$this->load->model('m_portofolio');
 
 		//cek jika mencoba akses halaman ini tanpa login
 		if(empty($this->session->userdata('nik'))){
@@ -29,10 +30,11 @@ class dashboard extends CI_Controller {
 	{
 		$cek_port=$this->m_dashboard->get_portofolio($nik);
 		  if($cek_port){ //data nik telah terdaftar
-			$this->session->set_notif('Terimakasih, Anda Telah mengisi Portofolio. Data anda sedang diproses ','check','success');
+			$this->session->set_notif('Terimakasih, Anda Telah mengisi Portofolio. Status keanggotaan sedang menunggu Aproval','spinner fa-spin','success');
+			return 1;
 		}else{
 			$this->session->set_notif('Anda belum mengisi Portofolio. ','spinner fa-spin','warning');
-		
+			return 0;
 		}
 	}
 
@@ -49,8 +51,24 @@ class dashboard extends CI_Controller {
 		$nik = $this->session->userdata('nik');
 
 		if($hak_akses==5) {
-			$this->cek_portofolio($nik);
+			$data['status'] = $this->cek_portofolio($nik);
+			if($data['status'] == '1'){
+				$data['data_portofolio'] = $this->m_portofolio->lihat_portofolio($nik);
+			}
 			//notif
+			
+			$status_aproval = $this->m_dashboard->get_status_aproval($nik);
+
+			if(isset($status_aproval)){
+				if($status_aproval == '0'){
+					$data['status_aproval'] = $status_aproval;
+					$this->session->set_notif('Maaf, pengajuan status keanggotaan anda ditolak','close','danger');
+				}else{
+					$this->session->set_notif('Pengajuan Ulang gagal','close','danger');
+				}
+			}
+			
+
 			$data['notif'] = $this->session->get_notif();
 			$this->load->view('dashboard/dashboard_pendaftar',$data);
 			$this->load->view('template/footer');

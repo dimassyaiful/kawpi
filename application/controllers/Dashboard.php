@@ -67,7 +67,11 @@ class dashboard extends CI_Controller {
 			$this->load->view('template/footer');
 			
 		}elseif($hak_akses==4){
-			$this->session->set_notif('Terimakasih, Anda telah Terdaftar sebagai Anggota ','check','success');
+
+			$notif = $this->session->get_notif();
+			if(empty($notif)){
+				$this->session->set_notif('Terimakasih, Anda telah Terdaftar sebagai Anggota ','check','success');
+			}
 			//notif
 			$data['notif'] = $this->session->get_notif();
 			$this->load->view('dashboard/dashboard_anggota',$data);
@@ -75,7 +79,6 @@ class dashboard extends CI_Controller {
 
 		}
 		elseif($hak_akses==3){
-			$this->session->set_notif('Terimakasih, Anda telah Terdaftar sebagai Anggota ','check','success');
 			$data['jumlah_anggota'] = $this->m_dashboard->count_anggota();
 			$data['jumlah_pendaftar'] = $this->m_dashboard->count_pendaftar();
 			$data['notif'] = $this->session->get_notif();

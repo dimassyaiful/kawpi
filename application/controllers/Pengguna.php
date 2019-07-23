@@ -16,6 +16,11 @@ class pengguna extends CI_Controller {
 			exit;
 		}
 
+		
+	}
+
+	public function index()
+	{	
 		//cek hak akses
 		$hak_akses = $this->session->userdata('hak_akses');
 		if($hak_akses !== '1'){
@@ -26,10 +31,7 @@ class pengguna extends CI_Controller {
 			exit;
 		
 		}
-	}
 
-	public function index()
-	{	
 		$data['notif'] = $this->session->get_notif();
 		$header['title_halaman'] = 'Data Pengguna';
 		$this->load->view('template/header',$header);
@@ -54,10 +56,25 @@ class pengguna extends CI_Controller {
 
 	public function edit()
 	{	
-		$data['notif'] = $this->session->get_notif();
-		$header['title_halaman'] = 'Edit Data';
-
 		$nik = $this->uri->segment('3');
+		//cek hak akses
+		$hak_akses = $this->session->userdata('hak_akses');
+		$nik_session = $this->session->userdata('nik');
+		$title = "Edit Data Pengguna";
+		if($hak_akses !== '1'){
+			$title = "Edit Profile";
+			if($nik !== $nik_session){
+				//notif
+			$this->session->set_notif('Akses ditolak! , anda tidak punya akses untuk halaman ini','close','danger');
+			redirect('dashboard');
+			exit;
+			}
+		}
+		
+		$data['notif'] = $this->session->get_notif();
+		$header['title_halaman'] = $title;
+
+		
 		$data = $this->m_pengguna->get_data_pengguna($nik);
 
 		$data['data_pengguna'] = $this->m_pengguna->get_data_pengguna_1($nik);

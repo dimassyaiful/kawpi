@@ -1,5 +1,5 @@
 <form action="<?= base_url(); ?>pengguna/edit_conf" method= "post">
-<center> <h1> Edit Data Pengguna</h1></center>
+<center> <h1> <?= $title_halaman; ?> </h1></center>
 
 <?php  
 //munculkan notifikasi

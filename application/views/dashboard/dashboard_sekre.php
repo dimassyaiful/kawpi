@@ -1,4 +1,10 @@
 <h1> Welcome <?= $this->session->userdata('nama'); ?></h1>
+
+<?php  
+    //munculkan notifikasi     
+    if(!empty($notif)){ echo $notif; } 
+?>
+
 <br><br>
 <div class="row" style="padding-left: 10px; padding-right: 10px;" >
   <div class="col-md-3 col-xs-12"  style="margin: 5px 5px 5px 5px;">

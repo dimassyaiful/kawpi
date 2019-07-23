@@ -8,6 +8,13 @@ class Pendaftar extends CI_Controller {
 		$this->load->library('password');
 		$this->load->model('m_pendaftar');	
 		$this->load->model('m_pengguna');	
+		
+		$hak_akses = $this->session->userdata('hak_akses');
+		if($hak_akses == '4' || $hak_akses == '5' || $hak_akses == '2'){
+			$this->session->set_notif('Maaf, Anda tidak memiliki akses untuk halaman ini','warning','warning');
+			echo "<script> history.back(); </script>";
+			exit();
+		}
 	}
 	
 	public function index()
@@ -68,6 +75,56 @@ class Pendaftar extends CI_Controller {
 	 
 	}
 	
+	function verifikasi()
+	{ 
+	   
+	  $nik = $this->password->decrypt($this->uri->segment('3'));
+	  $status = $this->password->decrypt($this->uri->segment('4'));
+
+	  if($status == 'tolak'){
+	  		$status_ = 0;
+	  		$keterangan = $this->input->post('keterangan');
+	  		$notif_berhasil = 'Verifikasi Berhasil, NIK."'.$nik.'" telah ditolak sebagai Anggota';
+	  		$notif_class = 'info';
+	  }elseif($status == 'terima'){	
+	  		$status_ = 1;
+	  		$keterangan = '';
+	  		$notif_berhasil = 'Verifikasi Berhasil, NIK."'.$nik.'" telah diterima sebagai Anggota';
+	  		$notif_class = 'success';
+
+		  	$data_mapping = array(
+			  	'nik' => $nik,
+			  	'id_posisi' => 4
+			);
+
+			$mapping = $this->m_pengguna->update_mapping($nik,$data_mapping);
+			if(!$mapping){
+			  	$this->session->set_notif('Verifikasi Gagal, gagal update mapping','close','danger');
+			  	redirect('pendaftar');
+			}
+	  }else{
+	  	redirect('login');
+	  	$this->session->set_notif('Anda tidak memiliki akses!','close','danger');
+	  	exit;
+	  }
+
+	  	$data_verifikasi = array(
+		  	'nik' => $nik,
+		  	'status' => $status_,
+		  	'tgl_verifikasi' => date('Y-m-d'),
+		  	'keterangan' => $keterangan
+		);
+
+	  $verifikasi = $this->m_pendaftar->verifikasi($data_verifikasi);
+	  if($verifikasi){
+	  	$this->session->set_notif($notif_berhasil,'check',$notif_class);
+	  	redirect('pendaftar');
+	  }else{
+	  	$this->session->set_notif('Verifikasi NIK."'.$nik.'" Gagal','close','danger');
+	  	redirect('pendaftar');
+	  }
+	}
+
 	function save_edit($nik)
 	{ $nik = $this->input->post('nik');
 	  $nama = $this->input->post('nama');

@@ -7,6 +7,13 @@ class anggota extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('m_anggota');	
         $this->load->model('m_anggota');
+
+        $hak_akses = $this->session->userdata('hak_akses');
+		if($hak_akses == '4' || $hak_akses == '5' || $hak_akses == '2'){
+			$this->session->set_notif('Maaf, Anda tidak memiliki akses untuk halaman ini','warning','warning');
+			echo "<script> history.back(); </script>";
+			exit();
+		}
 	}
 	
 	public function index()
